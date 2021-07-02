@@ -1,33 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Gilda+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Prata&display=swap');
+
 :root {
     --vertical-space: 2rem;
     --horizontal-space: 3rem;
+    --body-color: #FFFFFF;
+    --heading-color: #69CDFF;
+    --contrast-color: #E09B46;
 }
-/* img.aboutMe {
-    height: 15em;
-} */
 body {
-    /* padding-left: 4em;
+    font-family: 'Montserrat', sans-serif;
+    
     font-size: 18px;
-    line-height: 1.5; */
+    line-height: 1.5;
     display: grid;
-    grid-template-areas: "head head"
-                         "nav nav"
-                         "main main"
-                         "foot foot";
-    grid-template-columns: 1fr 4fr;
-    grid-template-rows: auto auto 1fr auto;
+    grid-template-areas:    "head head"
+                            "nav nav"
+                            "main main"
+                            "foot foot";
+    grid-template-columns: 1fr 8fr;
+    grid-template-rows: auto auto 1fr auto; 
+    background-image: repeating-linear-gradient(45deg, rgba(226, 226, 226,0.06) 0px, rgba(226, 226, 226,0.06) 2px,transparent 2px, transparent 4px),linear-gradient(90deg, rgb(31,109,148),rgb(31,109,148));
 }
 
 @media screen and (min-width: 25em) {
     body {
-        grid-template-areas: "head head"
-                         "nav main"
-                         "foot foot";
+        grid-template-areas:    "head head"
+                                "nav main"
+                                "foot foot";
+        grid-template-columns: 1fr 8fr;
         grid-template-rows: auto 1fr auto;
-
     }
 }
+#aboutMeImg {
+    max-width: 14em;
+    display: inline;
+    float: left;
+    margin-right: var(--horizontal-space);
+}
+@media screen and (min-width: 25em) {
+    #aboutMeImg {
+        max-width: 25em;
+        display: inline;
+        float: left;
+        margin-right: var(--horizontal-space);
+    }
+}
+    h1, h2, h3 {
+    line-height: 1.2;
+    font-family: 'Gilda Display', serif;
+    color: var(--heading-color);
+}
+#resumeItems {
+    /* color: var(--body-color); */
+    color: var(--body-color);
+}
 p {
+    color: var(--body-color);
     max-width: 50em;
 }
 body > * {
@@ -44,11 +73,25 @@ body > nav ul {
     list-style-type: none;
     padding: 0;
 }
+body > nav ul li {
+    display: inline;
+    padding-right: 1rem;
+}
 body > main {
     grid-area: main;
 }
 body > footer {
     grid-area: foot;
+}
+a {
+    color: var(--body-color);
+    text-decoration-color: var(--contrast-color);
+}
+a:hover {
+    color: var(--contrast-color);
+}
+footer {
+    color: var(--body-color);
 }
 header,footer {
     padding-top: var(--vertical-space);
@@ -65,11 +108,11 @@ body#portfolio ul#portfolioItems {
     padding: 0;
 }
 @media screen and (min-width: 25em) {
-body#portfolio ul#porfolioItems li {
+    body#portfolio main ul#portfolioItems li{
     flex-basis: 48%;
     padding-right: 2%;
     }
 }
-body#portfolio ul#porfolioItems li img{
+body#portfolio main ul#portfolioItems li img{
     max-width: 100%;
 }
