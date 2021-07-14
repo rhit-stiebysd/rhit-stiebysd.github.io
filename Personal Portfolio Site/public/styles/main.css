@@ -5,7 +5,7 @@
     --vertical-space: 2rem;
     --horizontal-space: 3rem;
     --body-color: #FFFFFF;
-    --heading-color: #69CDFF;
+    --heading-color: #8CFAFF;
     --contrast-color: #E09B46;
 }
 body {
@@ -23,41 +23,69 @@ body {
     background-image: repeating-linear-gradient(45deg, rgba(226, 226, 226,0.06) 0px, rgba(226, 226, 226,0.06) 2px,transparent 2px, transparent 4px),linear-gradient(90deg, rgb(31,109,148),rgb(31,109,148));
 }
 
-@media screen and (min-width: 25em) {
+@media screen and (min-width: 829px) {
     body {
-        grid-template-areas:    "head head"
+        grid-template-areas:    "nav head"
                                 "nav main"
-                                "foot foot";
+                                "nav foot";
         grid-template-columns: 1fr 8fr;
         grid-template-rows: auto 1fr auto;
     }
+    body#resume {
+        max-width: 85%;
+    }
+    body > nav ul {
+        border-right: 0.15em ridge var(--contrast-color);
+        text-align: right;
+    }
 }
+
+#about main p{
+    margin-top: 0px;
+}
+
 #aboutMeImg {
     max-width: 14em;
     display: inline;
     float: left;
     margin-right: var(--horizontal-space);
+    border-right: dotted 0.25em var(--contrast-color);
+    border-bottom: dotted 0.25em var(--contrast-color);
 }
 @media screen and (min-width: 25em) {
     #aboutMeImg {
         max-width: 25em;
+        width: 80%;
         display: inline;
         float: left;
         margin-right: var(--horizontal-space);
     }
 }
-    h1, h2, h3 {
+h1, h2, h3 {
     line-height: 1.2;
     font-family: 'Gilda Display', serif;
     color: var(--heading-color);
 }
-#resumeItems {
-    /* color: var(--body-color); */
+
+#itsMyName {
+    font-size: 50px;
+    color: var(--heading-color);
+    text-decoration-line: underline;
+    text-decoration-color: var(--body-color);
+}
+
+.resumeItems {
     color: var(--body-color);
 }
 p {
     color: var(--body-color);
     max-width: 50em;
+}
+
+@media screen and (min-width: 1024px) {
+    body#about p {
+        max-width: 80%
+    }
 }
 body > * {
     padding-left: var(--horizontal-space);
@@ -71,11 +99,19 @@ body > nav {
 }
 body > nav ul {
     list-style-type: none;
-    padding: 0;
+    padding: 0;    
 }
 body > nav ul li {
-    display: inline;
-    padding-right: 1rem;
+    display: block;
+    padding-right: 0.5rem;
+    font-size: 2em;
+}
+@media screen and (min-width: 574px) {
+    body > nav ul li {
+        display: inline;
+        padding-right: 0.5rem;
+        font-size: 2em;
+    }
 }
 body > main {
     grid-area: main;
@@ -89,6 +125,7 @@ a {
 }
 a:hover {
     color: var(--contrast-color);
+    text-decoration-color: var(--body-color);
 }
 footer {
     color: var(--body-color);
@@ -107,12 +144,46 @@ body#portfolio ul#portfolioItems {
     list-style-type: none;
     padding: 0;
 }
+.portfolioItem {
+    border-bottom: 0.2em double black;
+}
 @media screen and (min-width: 25em) {
     body#portfolio main ul#portfolioItems li{
-    flex-basis: 48%;
+    flex-basis: 45%;
     padding-right: 2%;
     }
 }
 body#portfolio main ul#portfolioItems li img{
     max-width: 100%;
+}
+
+aside.creditGiven {
+    font-size: 0.5em;
+}
+
+.dates {
+    text-align: right;
+    font-size: 0.8em;
+}
+
+#resume h2 {
+    border-top: 0.15em double var(--contrast-color);
+}
+
+#resume #contactInfo {
+    font-size: 1.1em;
+}
+.experienceItems {
+    border-bottom: 0.1em solid black;
+}
+
+.moving-letters {
+    position: relative;
+}
+.moving-letters .text-wrapper {
+    position: relative;
+    overflow: hidden;
+}
+.moving-letters .letters {
+    transform-origin: 50%  100%;
 }
